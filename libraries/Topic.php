@@ -26,4 +26,40 @@ class Topic{
 		
 		return $results;
 	}
+	
+	/*
+	 * Get total # of topics
+	 */
+	public function getTotalTopics(){
+		$this->db->query('SELECT * FROM `topics`');
+		$this->db->resultset();
+		return $this->db->rowCount();
+	}
+	
+	/*
+	 * Get total # of categories
+	 */
+	public function getTotalCategories(){
+		$this->db->query('SELECT * FROM `categories`');
+		$this->db->resultset();
+		return $this->db->rowCount();
+	}	
+
+	/*
+	 * Get total # of replies
+	 */
+	public function getTotalReplies($topic_id){
+		$this->db->query("SELECT * FROM `replies` WHERE topic_id = $topic_id");
+		$this->db->resultset();
+		return $this->db->rowCount();
+	}
+	
+	/*
+	 * Get total # of users
+	 */
+	public function getTotalUsers(){
+		$this->db->query('SELECT * FROM `users`');
+		$this->db->resultset();
+		return $this->db->rowCount();
+	}	
 }
