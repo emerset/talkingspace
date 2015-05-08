@@ -1,11 +1,13 @@
 <?php require('core/init.php'); ?>
 
 <?php 
-// Get template and assign vars
+// Create topic object
+$topic = new Topic();
+// Get template
 $template = new Template('templates/frontpage.php');
 
 //Assign vars
-$template->heading = 'This is the template heading';
+$template->topics = $topic->getAllTopics();
 
 // Display template
 echo $template;
