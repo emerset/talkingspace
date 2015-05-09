@@ -12,7 +12,7 @@ function formatDate($date) {
  */
 function urlFormat($str) {
 	// Strip out all whitespace
-	$str = preg_replace('/\s*/', $str);
+	$str = preg_replace('/\s*/', '', $str);
 	// Convert string to lowercase
 	$str = strtolower($str);
 	//URL encode
