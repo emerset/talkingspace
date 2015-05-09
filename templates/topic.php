@@ -4,18 +4,17 @@
 		<div class="row">
 			<div class="col-md-2">
 				<div class="user-info">
-					<img class="avatar pull-left" src="img/gravatar.jpg" />
+					<img class="avatar pull-left" src="<?php echo BASE_URI ?>/images/avatars/<?php echo $topic->avatar ?>" />
 					<ul>
-						<li><strong>BradT81</strong></li>
-						<li>43 Posts</li>
-						<li><a href="profile.php">Profile</a></li>
+						<li><strong><?php echo $topic->username ?></strong></li>
+						<li><?php echo userPostCount($topic->user_id) ?> Posts</li>
+						<li><a href="<?php echo BASE_URI ?>topics.php?user=<?php echo $topic->user_id ?>">Profile</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-md-10">
 				<div class="topic-content pull-right">
-					<p>I just worked in split mode in dreamweaver and paid attentions to what was happening on the code end.
-					How did you learn CSS and HTML? How long did it take you until you were proficient?</p>
+					<?php echo $topic->body ?>
 				</div>
 			</div>
 		</div>
