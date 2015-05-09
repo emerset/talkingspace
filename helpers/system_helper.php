@@ -27,7 +27,7 @@ function redirect($page = FALSE, $message = NULL, $message_type = NULL) {
 
 /*
  * Display Message
-*/
+ */
 function displayMessage(){
 	if(!empty($_SESSION['message'])) {
 
@@ -50,4 +50,26 @@ function displayMessage(){
 	} else {
 		echo '';
 	}
+}
+
+/*
+ * Check If User Is Logged In
+ */
+function isLoggedIn(){
+	if (isset($_SESSION['is_logged_in'])){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/*
+ * Get Logged In User Info
+ */
+function getUser(){
+	$userArray = array();
+	$userArray['user_id'] = $_SESSION['user_id'];
+	$userArray['username'] = $_SESSION['username'];
+	$userArray['name'] = $_SESSION['name'];
+	return $userArray;
 }
