@@ -20,13 +20,13 @@ $template->totalUsers = $topic->getTotalUsers();
 // Check for category filter
 if(isset($category)){
 	$template->topics = $topic->getByCategory($category);
-	$template->title = 'Posts In "'.$topic->getByCategory($category)->name.'"';
+	$template->title = 'Posts In "'.$topic->getByCategory($category)['0']->name.'"';
 }
 	
 // Check for user filter
 if(isset($user_id)){
 	$template->topics = $topic->getByUser($user_id);
-	$template->title = 'Posts By "'.$topic->getByUser($user_id)->name.'"';
+	$template->title = 'Posts By '.$topic->getByUser($user_id)['0']->username;
 }
 
 if(!isset($category) && !isset($user_id)){
