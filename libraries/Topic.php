@@ -64,7 +64,7 @@ class Topic{
 	}	
 	
 	/*
-	 * Get by category
+	 * Get topics by category
 	 */
 	public function getByCategory($category_id){
 		$this->db->query("SELECT topics.*, categories.*, users.username, users.avatar FROM topics
@@ -75,18 +75,34 @@ class Topic{
 						WHERE topics.category_id = :category_id
 						");
 		$this->db->bind(':category_id', $category_id);
-		$row = $this->db->single();
-		return $row;
+		$results = $this->db->resultset();
+		return $results;
 	}
 	
 	/*
-	 * Get Topic
+	 * Get topics by username
+	 */
+	public function getByUser($user_id){
+		$this->db->query("SELECT topics.*, categories.*, users.username, users.avatar FROM topics
+						INNER JOIN categories
+						ON topics.category_id = categories.id
+						INNER JOIN users
+						ON topics.user_id = users.id
+						WHERE users.user_id = :user_id
+						");
+		$this->db->bind(':user_id', $user_id);
+		$results = $this->db->resultset();
+		return $results;
+	}
+	
+	/*
+	 * Get Single Topic
 	 */
 	public function getTopic($topic_id){
 		$this->db->query("SELECT topics.*, users.username, users.name, users.avatar FROM `topics`
 						INNER JOIN users
 						ON topics.user_id = users.id
-						WHERE topics.user_id = :topic_id
+						WHERE topics.id = :topic_id
 						");
 		$this->db->bind(':topic_id', $topic_id);
 		$row = $this->db->single();
@@ -104,8 +120,9 @@ class Topic{
 						ORDER BY create_date ASC
 						");
 		$this->db->bind(':topic_id', $topic_id);
-		$row = $this->db->single();
-		return $row;
+		
+		$results = $this->db->resultset();
+		return $results;
 	}
 	
 	/*
