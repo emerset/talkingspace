@@ -62,4 +62,20 @@ class Topic{
 		$this->db->resultset();
 		return $this->db->rowCount();
 	}	
+	
+	/*
+	 * Get by category
+	 */
+	public function getByCategory($category_id){
+		$this->db->query("SELECT topics.*, categories.*, users.username, users.avatar FROM topics
+						INNER JOIN categories
+						ON topics.category_id = categories.id
+						INNER JOIN users
+						ON topics.user_id = users.id
+						WHERE topics.category_id = :category_id
+						");
+		$this->db->bind(':category_id', $category_id);
+		$row = $this->db->single();
+		return $row;
+	}
 }
