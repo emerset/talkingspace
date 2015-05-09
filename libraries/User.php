@@ -86,4 +86,14 @@ class User{
 			return false;
 		}
 	}
+	
+	/*
+	 * Set User Data
+	 */
+	public function setUserData($row){
+		$_SESSION['is_logged_in'] = true;
+		$_SESSION['user_id'] = $row->id;
+		$_SESSION['username'] = $row->username;
+		$_SESSION['name'] = $row->name;
+	}
 }
