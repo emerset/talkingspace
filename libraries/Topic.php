@@ -88,7 +88,7 @@ class Topic{
 						ON topics.category_id = categories.id
 						INNER JOIN users
 						ON topics.user_id = users.id
-						WHERE users.user_id = :user_id
+						WHERE users.id = :user_id
 						");
 		$this->db->bind(':user_id', $user_id);
 		$results = $this->db->resultset();
