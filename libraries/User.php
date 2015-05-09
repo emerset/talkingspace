@@ -67,4 +67,23 @@ class User{
 			redirect('register.php', 'Invalid File Type!', 'error');
 		}
 	}
+	
+	/*
+	 * User Login
+	 */
+	public function login($username, $password){
+		$this->db->query("SELECT * FROM users WHERE username = :username AND password = :password");
+		$this->db->bind(':username', $username);
+		$this->db->bind(':password', $password);
+		
+		$row = $this->db->single();
+		
+		// check for succussful username
+		if ($this->db->rowCount() > 0) {
+			$this->setUserData($row);
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
