@@ -36,3 +36,17 @@ function is_active($category){
 		}
 	}
 }
+
+/*
+ * Add link isactive if on current page
+ */
+function isCurrentPage($page){
+	$url = $_SERVER['PHP_SELF'];
+	$url_array = explode('/', $url);
+	$current_page = end($url_array);
+	if ($page.'.php' == $current_page) {
+		return ' class="active"';
+	} else {
+		return '';
+	}
+}

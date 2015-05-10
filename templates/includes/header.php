@@ -33,9 +33,9 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="register.php">Create An Account</a></li>
-            <li><a href="create.php">Create Topic</a></li>
+            <li<?php echo isCurrentPage('index') ?>><a href="index.php">Home</a></li>
+            <li<?php echo isCurrentPage('register') ?>><a href="register.php">Create An Account</a></li>
+            <li<?php echo isCurrentPage('create') ?>><a href="create.php">Create Topic</a></li>
           </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -51,4 +51,5 @@
 					<div class="clearfix"></div>
 					<hr>
 					<?php displayMessage(); ?>
+					<?php var_dump($_SERVER['PHP_SELF']) ?>
 					
