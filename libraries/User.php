@@ -88,6 +88,17 @@ class User{
 	}
 	
 	/*
+	 * User Logout
+	 */
+	public function logout(){
+		unset($_SESSION['is_logged_in']);
+		unset($_SESSION['user_id']);
+		unset($_SESSION['username']);
+		unset($_SESSION['name']);
+		return true;
+	}
+	
+	/*
 	 * Set User Data
 	 */
 	public function setUserData($row){
@@ -95,5 +106,14 @@ class User{
 		$_SESSION['user_id'] = $row->id;
 		$_SESSION['username'] = $row->username;
 		$_SESSION['name'] = $row->name;
+	}
+	
+	/*
+	 * Get total # of users
+	 */
+	public function getTotalUsers(){
+		$this->db->query('SELECT * FROM `users`');
+		$this->db->resultset();
+		return $this->db->rowCount();
 	}
 }

@@ -3,6 +3,9 @@
 // Create topics object
 $topic = new Topic();
 
+// Create User Object
+$user = new User();
+
 // Get category from URL
 $category = isset($_GET['category']) ? $_GET['category'] : null;
 
@@ -15,7 +18,7 @@ $template = new Template('templates/topics.php');
 //Assign vars
 $template->totalTopics = $topic->getTotalTopics();
 $template->totalCategories = $topic->getTotalCategories();
-$template->totalUsers = $topic->getTotalUsers();
+$template->totalUsers = $user->getTotalUsers();
 
 // Check for category filter
 if(isset($category)){

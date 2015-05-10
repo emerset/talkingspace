@@ -10,7 +10,7 @@
 							<h3><?php echo getUser()['username'] ?></h3>
 						</div>
 						<br>
-						<form role="form method="post" action="logout.php">
+						<form role="form" method="post" action="logout.php">
 							<input type="submit" name="do_logout" class="btn btn-primary" value="Log Out" />
 						</form>
 						<?php else : ?>

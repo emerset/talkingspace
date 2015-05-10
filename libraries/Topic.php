@@ -52,15 +52,6 @@ class Topic{
 		$this->db->query("SELECT * FROM `replies` WHERE topic_id = $topic_id");
 		$this->db->resultset();
 		return $this->db->rowCount();
-	}
-	
-	/*
-	 * Get total # of users
-	 */
-	public function getTotalUsers(){
-		$this->db->query('SELECT * FROM `users`');
-		$this->db->resultset();
-		return $this->db->rowCount();
 	}	
 	
 	/*
