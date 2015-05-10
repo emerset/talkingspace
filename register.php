@@ -27,7 +27,7 @@ if (isset($_POST['register'])) {
 	if ($validate->isRequired($field_array)) {
 		if ($validate->isValidEmail($data['email'])) {
 			if ($validate->passwordsMatch($data['password'], $data['password2'])) {
-				// great success!
+				// validation successful
 				//check if image submitted
 				if ($_FILES['avatar']['size'] > 0) {
 					// Upload Avatar image
@@ -40,7 +40,8 @@ if (isset($_POST['register'])) {
 				
 				// Register User
 				if($user->register($data)){
-					redirect('index.php', 'You are registered and can now log in', 'success');
+					// DB insert successful
+					redirect('index.php', 'Welcome to TalkingSpace, '.$data['name'].'!'.' Log in to continue.', 'success');
 				} else {
 					redirect('index.php', 'Something went wrong with registration', 'error');
 				}
