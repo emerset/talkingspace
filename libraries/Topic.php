@@ -58,7 +58,7 @@ class Topic{
 	 * Get topics by category
 	 */
 	public function getByCategory($category_id){
-		$this->db->query("SELECT topics.*, categories.*, users.username, users.avatar FROM topics
+		$this->db->query("SELECT topics.*, categories.name, categories.description, users.username, users.avatar FROM topics
 						INNER JOIN categories
 						ON topics.category_id = categories.id
 						INNER JOIN users
