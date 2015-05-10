@@ -13,6 +13,17 @@ function replyCount($topic_id){
 }
 
 /*
+ * Get # of topics by category
+ */
+function categoryTopicCount($category_id){
+	$db = new Database();
+	$db->query('SELECT * FROM `topics` WHERE topics.category_id = :category_id');
+	$db->bind(':category_id', $category_id);
+	$db->resultset();
+	return $db->rowCount();
+}
+
+/*
  * Get Categories
  */
 function getCategories(){

@@ -58,6 +58,7 @@ if (isset($_POST['register'])) {
 
 // Get template and assign vars
 $template = new Template('templates/register.php');
+$template->totalTopics = $topic->getTotalTopics();
 
 //Assign vars
 

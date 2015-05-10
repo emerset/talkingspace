@@ -29,7 +29,7 @@ if(isset($category)){
 // Check for user filter
 if(isset($user_id)){
 	$template->topics = $topic->getByUser($user_id);
-	$template->title = 'Posts By '.$topic->getByUser($user_id)['0']->username;
+	$template->title = 'Posts By '.$topic->getNameById($user_id)->username;
 }
 
 if(!isset($category) && !isset($user_id)){

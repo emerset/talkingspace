@@ -35,7 +35,8 @@ if (isset($_POST['do_create'])) {
 $template = new Template('templates/create.php');
 
 //Assign vars
-
+$template->title = 'Create New Topic';
+$template->totalTopics = $topic->getTotalTopics();
 // Display template
 echo $template;
 ?>

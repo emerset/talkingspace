@@ -2,7 +2,7 @@
 				</div>
 			</div>
 			
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<div class="sidebar">
 					<div class="block">
 						<?php if (isLoggedIn()) : ?>
@@ -11,9 +11,14 @@
 							<div align="center"><h3><?php echo getUser()['username'] ?></h3></div>
 						</div>
 						<br>
-						<form role="form" method="post" action="logout.php">
+						<div align="center">
+						<form role="form" method="post" action="logout.php" class="display-inline">
 							<input type="submit" name="do_logout" class="btn btn-primary" value="Log Out" />
 						</form>
+						<form role="form" method="post" action="editprofile.php">
+							<input type="submit" name="do_profile" class="btn" value="Edit Profile" />
+						</form>
+						</div>
 						<?php else : ?>
 						<h3>Login Form</h3>
 						<form role="form" method="post" action="login.php">
@@ -34,9 +39,9 @@
 					<div class="block">
 					<h3>Categories</h3>
 					<div class="list-group">
-						<a href="topics.php" class="list-group-item <?php echo is_active(null) ?>">All Topics <span class="badge pull-right">14</span></a>
+						<a href="topics.php" class="list-group-item <?php echo is_active(null) ?>">All Topics <span class="badge pull-right"><?php echo $totalTopics ?></span></a>
 						<?php foreach (getCategories() as $category) : ?>
-						<a href="topics.php?category=<?php echo $category->id ?>" class="list-group-item <?php echo is_active($category->id) ?>"><?php echo $category->name ?><span class="badge pull-right">4</span></a>
+						<a href="topics.php?category=<?php echo $category->id ?>" class="list-group-item <?php echo is_active($category->id) ?>"><?php echo $category->name ?><span class="badge pull-right"><?php echo categoryTopicCount($category->id) ?></span></a>
 						<?php endforeach; ?>
 					</div>
 				</div>	

@@ -87,6 +87,16 @@ class Topic{
 	}
 	
 	/*
+	 * Get username by user_id
+	 */
+	public function getNameById($user_id){
+		$this->db->query("SELECT username FROM users WHERE id = :user_id");
+		$this->db->bind(':user_id', $user_id);
+		$result = $this->db->single();
+		return $result;
+	}
+	
+	/*
 	 * Get Single Topic
 	 */
 	public function getTopic($topic_id){

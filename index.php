@@ -16,6 +16,11 @@ $template->totalTopics = $topic->getTotalTopics();
 $template->totalCategories = $topic->getTotalCategories();
 $template->totalUsers = $user->getTotalUsers();
 
+// Set title
+if (isLoggedIn()){
+   	$template->title = $_SESSION['username']."'s TalkingSpace";
+}
+    	
 // Display template
 echo $template;
 ?>
