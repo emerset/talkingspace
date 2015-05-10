@@ -106,6 +106,7 @@ class User{
 		$_SESSION['user_id'] = $row->id;
 		$_SESSION['username'] = $row->username;
 		$_SESSION['name'] = $row->name;
+		$_SESSION['avatar'] = $row->avatar;
 	}
 	
 	/*

@@ -7,7 +7,8 @@
 					<div class="block">
 						<?php if (isLoggedIn()) : ?>
 						<div class="userdata">
-							<h3><?php echo getUser()['username'] ?></h3>
+							<img class="avatar" src="<?php echo BASE_URI.'/images/avatars/'.$_SESSION['avatar'] ?>">
+							<div align="center"><h3><?php echo getUser()['username'] ?></h3></div>
 						</div>
 						<br>
 						<form role="form" method="post" action="logout.php">
