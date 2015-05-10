@@ -1,8 +1,8 @@
 <?php require 'core/init.php'; ?>
 <?php 
 
-// just connect to the DB
-$user = new User();
+// Create topic object
+$topic = new Topic();
 
 // Get template
 $template = new Template('templates/create.php');
