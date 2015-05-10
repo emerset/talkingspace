@@ -28,9 +28,12 @@ if (isset($_POST['register'])) {
 		if ($validate->isValidEmail($data['email'])) {
 			if ($validate->passwordsMatch($data['password'], $data['password2'])) {
 				// great success!
-				// Upload Avatar image
-				if ($user->uploadAvatar()){
-					$data['avatar'] = $_FILES['avatar']['name'];
+				//check if image submitted
+				if ($_FILES['avatar']['size'] > 0) {
+					// Upload Avatar image
+					if ($user->uploadAvatar()){
+						$data['avatar'] = $_FILES['avatar']['name'];
+					}
 				} else {
 					$data['avatar'] = 'noimage.png';
 				}

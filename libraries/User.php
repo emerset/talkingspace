@@ -55,7 +55,7 @@ class User{
 				redirect('register.php', $_FILES["avatar"]["error"], 'error');
 			} else {
 				if (file_exists("images/avatars/" . $_FILES["avatar"]["name"])) {
-					redirect('register.php', 'File already exists', 'error');
+					redirect('register.php', 'Image name already exists', 'error');
 				} else {
 					move_uploaded_file($_FILES["avatar"]["tmp_name"],
 					"images/avatars/" . $_FILES["avatar"]["name"]);
@@ -64,7 +64,7 @@ class User{
 				}
 			}
 		} else {
-			redirect('register.php', 'Invalid File Type!', 'error');
+			redirect('register.php', 'Invalid File Type: $_FILES = '.var_dump($_FILES), 'error');
 		}
 	}
 	
